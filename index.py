@@ -31,12 +31,10 @@ def index():
         prediction = "Spam" if result == 1 else "Ham"
     return render_template('index.html', prediction=prediction)
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
 import os
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    port = int(os.environ.get("PORT", 5000))  # Render provides the port in this env variable
+    app.run(host="0.0.0.0", port=port)        # This line is critical for Render to detect the open port
+
 
