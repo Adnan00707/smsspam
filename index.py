@@ -34,7 +34,8 @@ def index():
 import os
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Render provides the port in this env variable
-    app.run(host="0.0.0.0", port=port)        # This line is critical for Render to detect the open port
+    port = int(os.environ.get("PORT", 5000))  # Use the PORT provided by Render
+    app.run(host="0.0.0.0", port=port, debug=True)  # Bind to 0.0.0.0
+
 
 
